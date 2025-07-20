@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VYNIX</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Popup Langganan -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2>Langganan VYNIX</h2>
+      <p>Masukkan kode langganan untuk akses penuh film AI:</p>
+      <input type="text" id="kode" placeholder="Masukkan kode di sini" />
+      <button onclick="cekKode()">Masuk</button>
+      <p class="note">Belum punya kode? Langganan hanya Rp10.000/bulan</p>
+    </div>
+  </div>
+
+  <!-- Header Logo -->
+  <header>
+    <div class="logo">VYNIX</div>
+  </header>
+
+  <!-- Hero Film Auto Scroll -->
+  <section class="hero" id="hero-scroll">
+    <div class="hero-track">
+      <img src="film1.jpg" alt="Film 1">
+      <img src="film2.jpg" alt="Film 2">
+      <img src="film3.jpg" alt="Film 3">
+      <!-- Tambah lagi sesuai kebutuhan -->
+    </div>
+  </section>
+
+  <!-- Poster Film Trending Scroll Manual -->
+  <section class="trending">
+    <h2>Trending Sekarang</h2>
+    <div class="trending-track">
+      <img src="film4.jpg" alt="Film A">
+      <img src="film5.jpg" alt="Film B">
+      <img src="film6.jpg" alt="Film C">
+    </div>
+  </section>
+
+  <!-- Video Player & Deskripsi -->
+  <section class="player">
+    <video controls>
+      <source src="https://example.com/film.mp4" type="video/mp4" />
+      Browser Anda tidak mendukung video.
+    </video>
+    <div class="desc">
+      <h3>Judul Film AI</h3>
+      <p><strong>Sutradara:</strong> Nama Sutradara</p>
+      <p><strong>Penulis:</strong> Nama Penulis</p>
+      <p><strong>Tools AI:</strong> GPT-4, Runway, Pika, LTX Studio, ElevenLabs</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proyek ini dibuat sepenuhnya dengan kecerdasan buatan. Konten sepenuhnya bersifat fiksi dan untuk eksperimen teknologi AI.</p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
