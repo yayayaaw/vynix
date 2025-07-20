@@ -1,33 +1,18 @@
-// ======= Auto Scroll Hero Poster ========
-const heroTrack = document.querySelector('.hero-track');
+function playVideo(videoUrl, title) {
+    const playerSection = document.getElementById('player');
+    const videoPlayer = document.getElementById('video-player');
+    const videoTitle = document.getElementById('video-title');
 
-let scrollSpeed = 1;
-function autoScroll() {
-  if (heroTrack) {
-    heroTrack.scrollLeft += scrollSpeed;
-    if (
-      heroTrack.scrollLeft + heroTrack.offsetWidth >= heroTrack.scrollWidth ||
-      heroTrack.scrollLeft <= 0
-    ) {
-      scrollSpeed *= -1;
-    }
-  }
-  requestAnimationFrame(autoScroll);
+    videoPlayer.src = videoUrl;
+    videoTitle.textContent = title;
+    playerSection.classList.remove('hidden');
+    videoPlayer.play();
 }
-autoScroll();
 
-// ======= Langganan Popup ========
-const popup = document.querySelector('.popup');
-const kodeInput = document.querySelector('#kodeLangganan');
-const tombolValidasi = document.querySelector('#validasiKode');
-
-tombolValidasi.addEventListener('click', () => {
-  const kode = kodeInput.value.trim();
-  const kodeValid = "VYNIX2025"; // Ganti dengan kode lo sendiri
-
-  if (kode === kodeValid) {
-    popup.style.display = "none";
-  } else {
-    alert("Kode salah, coba lagi!");
-  }
-});
+function closePlayer() {
+    const playerSection = document.getElementById('player');
+    const videoPlayer = document.getElementById('video-player');
+    videoPlayer.pause();
+    videoPlayer.src = '';
+    playerSection.classList.add('hidden');
+}
