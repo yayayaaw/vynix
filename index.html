@@ -1,64 +1,50 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VYNIX</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vynix - Streaming</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>Vynix</h1>
+    </header>
 
-  <!-- Popup Langganan -->
-  <div class="popup" id="popup">
-    <div class="popup-content">
-      <h2>Langganan VYNIX</h2>
-      <p>Masukkan kode langganan untuk akses penuh film AI:</p>
-      <input type="text" id="kode" placeholder="Masukkan kode di sini" />
-      <button onclick="cekKode()">Masuk</button>
-      <p class="note">Belum punya kode? Langganan hanya Rp10.000/bulan</p>
-    </div>
-  </div>
+    <section id="movies">
+        <h2>Pilih Film</h2>
+        <div class="movie-grid">
+            <!-- Ganti poster dan video dengan filemu -->
+            <div class="movie-card" onclick="playVideo('https://www.w3schools.com/html/mov_bbb.mp4', 'Big Buck Bunny')">
+                <img src="https://via.placeholder.com/200x300?text=Poster+1" alt="Movie 1">
+                <h3>Big Buck Bunny</h3>
+            </div>
+            <div class="movie-card" onclick="playVideo('https://www.w3schools.com/html/movie.mp4', 'Sample Movie')">
+                <img src="https://via.placeholder.com/200x300?text=Poster+2" alt="Movie 2">
+                <h3>Sample Movie</h3>
+            </div>
+            <!-- Tambah film di sini -->
+        </div>
+    </section>
 
-  <!-- Header Logo -->
-  <header>
-    <div class="logo">VYNIX</div>
-  </header>
+    <section id="player" class="hidden">
+        <h2 id="video-title">Judul Film</h2>
+        <!-- Iklan di atas video -->
+        <div class="ad-container">
+            <div class="ad-placeholder">Iklan: [Tempat untuk Google AdSense atau iklan lain]</div>
+        </div>
+        <video id="video-player" controls>
+            <source src="" type="video/mp4">
+            Browser kamu tidak mendukung video.
+        </video>
+        <button onclick="closePlayer()">Tutup</button>
+    </section>
 
-  <!-- Hero Film Auto Scroll -->
-  <section class="hero" id="hero-scroll">
-    <div class="hero-track">
-      <img src="film1.jpg" alt="Film 1">
-      <img src="film2.jpg" alt="Film 2">
-      <img src="film3.jpg" alt="Film 3">
-      <!-- Tambah lagi sesuai kebutuhan -->
-    </div>
-  </section>
+    <!-- Iklan sidebar atau footer -->
+    <aside class="ad-container">
+        <div class="ad-placeholder">Iklan Sidebar: [Tempat untuk Google AdSense atau iklan lain]</div>
+    </aside>
 
-  <!-- Poster Film Trending Scroll Manual -->
-  <section class="trending">
-    <h2>Trending Sekarang</h2>
-    <div class="trending-track">
-      <img src="film4.jpg" alt="Film A">
-      <img src="film5.jpg" alt="Film B">
-      <img src="film6.jpg" alt="Film C">
-    </div>
-  </section>
-
-  <!-- Video Player & Deskripsi -->
-  <section class="player">
-    <video controls>
-      <source src="https://example.com/film.mp4" type="video/mp4" />
-      Browser Anda tidak mendukung video.
-    </video>
-    <div class="desc">
-      <h3>Judul Film AI</h3>
-      <p><strong>Sutradara:</strong> Nama Sutradara</p>
-      <p><strong>Penulis:</strong> Nama Penulis</p>
-      <p><strong>Tools AI:</strong> GPT-4, Runway, Pika, LTX Studio, ElevenLabs</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proyek ini dibuat sepenuhnya dengan kecerdasan buatan. Konten sepenuhnya bersifat fiksi dan untuk eksperimen teknologi AI.</p>
-    </div>
-  </section>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
