@@ -1,0 +1,253 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background-color: #fff;
+  color: #111;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  background: white;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #000;
+}
+
+.donate-btn {
+  float: right;
+  background: #000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.donate-icon {
+  margin-right: 5px;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 20px 20px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Movie Grid */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 40px 0;
+}
+
+.movie-card {
+  cursor: pointer;
+  transition: transform 0.2s;
+  transform: rotate(-1.5deg); /* gaya miring */
+}
+
+.movie-card:hover {
+  transform: scale(1.05) rotate(-1.5deg);
+}
+
+.movie-poster {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* About Section */
+.about {
+  background-color: #f7f7f7;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.about-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.about-text {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+
+.creator {
+  margin-top: 30px;
+}
+
+.creator-name {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: #000;
+}
+
+.creator-title {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Donation Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-header h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.donation-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+input[type="tel"],
+input[type="number"] {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.quick-amounts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.quick-amount {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 30px;
+  background-color: #111;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Video Modal */
+.video-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container {
+  background: #fff;
+  padding: 20px;
+  width: 90%;
+  max-width: 720px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.video-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.video-placeholder {
+  padding: 60px 20px;
+  border: 2px dashed #aaa;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.play-button {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
