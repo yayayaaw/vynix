@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vynix - Streaming Film</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">VYNIX</h1>
+      <button class="donate-btn" id="donateBtn">
+        <span class="donate-icon">💰</span>
+        Donasi
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <section class="hero">
+        <h2 class="hero-title">Streaming Film Terbaru</h2>
+        <p class="hero-subtitle">Scroll ke bawah dan klik nonton untuk mulai streaming</p>
+      </section>
+
+      <!-- Grid Film -->
+      <section class="movies-grid" id="moviesGrid">
+        <!-- Film akan muncul lewat JavaScript -->
+      </section>
+    </div>
+  </main>
+
+  <!-- Tentang Kami -->
+  <section class="about">
+    <div class="container">
+      <h3 class="about-title">Tentang Kami</h3>
+      <p class="about-text">
+        Vynix adalah platform streaming film yang menyediakan akses mudah dan cepat ke berbagai koleksi film terbaik. Kami berkomitmen memberikan pengalaman menonton yang berkualitas untuk semua pengguna.
+      </p>
+      <div class="creator">
+        <h4 class="creator-name">MUHAMAD RIVAL</h4>
+        <p class="creator-title">Founder & Developer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Donasi -->
+  <div class="modal-overlay" id="donationModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <div class="modal-header">
+        <h3>Donasi untuk Vynix</h3>
+        <p>Dukung pengembangan platform kami</p>
+      </div>
+      <div class="modal-body">
+        <div class="donation-method">
+          <div class="method-header">
+            <img src="https://images.pexels.com/photos/6863183/pexels-photo-6863183.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop" alt="Dana" class="dana-logo" />
+            <span class="method-name">DANA</span>
+          </div>
+          <form class="donation-form" id="donationForm">
+            <div class="form-group">
+              <label for="phoneNumber">Nomor Telepon Dana</label>
+              <input type="tel" id="phoneNumber" placeholder="08xxxxxxxxxx" required />
+            </div>
+            <div class="form-group">
+              <label for="amount">Jumlah Donasi</label>
+              <input type="number" id="amount" placeholder="10000" min="1000" required />
+            </div>
+            <div class="quick-amounts">
+              <button type="button" class="quick-amount" data-amount="10000">10k</button>
+              <button type="button" class="quick-amount" data-amount="25000">25k</button>
+              <button type="button" class="quick-amount" data-amount="50000">50k</button>
+              <button type="button" class="quick-amount" data-amount="100000">100k</button>
+            </div>
+            <button type="submit" class="submit-btn">Kirim Donasi</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Player Modal -->
+  <div class="video-modal" id="videoModal">
+    <div class="video-container">
+      <button class="video-close" id="closeVideo">&times;</button>
+      <div class="video-header">
+        <h3 id="videoTitle">Film Title</h3>
+      </div>
+      <div class="video-player">
+        <div class="video-placeholder">
+          <div class="play-button">▶</div>
+          <p>Video akan dimuat di sini</p>
+          <small>* Ini adalah demo, video sebenarnya akan diintegrasikan nanti</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
