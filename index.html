@@ -3,56 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vynix - Streaming Film</title>
+    <title>Vynix - AI Film Streaming | Futuristik</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
 </head>
-<body>
+<body data-theme='dark'>
     
     <div class="header">
         <div class="logo">Vynix</div>
         <div class="header-right">
-            <div class="theme-toggle">
-                <i class="fas fa-moon" id="theme-icon"></i>
+            <div class="search-icon" id="headerSearchIcon"> 
+                <i class="fas fa-search"></i>
             </div>
-            <button class="support-btn" id="supportBtn">
-                <i class="fas fa-heart"></i> Support
-            </button>
+            <div class="profile-icon">
+                <i class="fas fa-user-circle"></i>
+            </div>
         </div>
     </div>
 
-    <div class="main-content" id="main-content">
+    <div id="support-page-view" class="main-view hidden-view">
+        <div class="support-content">
+            <h2>Dukung Vynix</h2>
+            <p>Halaman ini adalah tempat khusus untuk informasi dukungan dan sponsor. Silakan hubungi kami melalui media sosial di bawah ini. Dukungan Anda sangat berarti bagi pengembangan Vynix.</p>
+            
+            <div class="social-icons">
+                <a href="#" class="social-icon" id="social-instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon" id="social-tiktok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            
+            <div class="contact-info">
+                <p style="margin-top: 50px;">Informasi kontak: Silakan cek media sosial kami.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content main-view" id="main-content">
+        
+        <div class="hero-banner">
+            <div class="hero-content">
+                <h1 class="hero-title">V Y N I X</h1>
+                <p class="hero-subtitle">Masa Depan Hiburan Digital</p>
+                <p class="hero-coming-soon">COMING SOON 2026</p>
+            </div>
+        </div>
+        </div>
+
+    <div id="explore-page-view" class="main-view hidden-view">
+        <div class="search-bar-container">
+            <input type="text" id="searchInput" placeholder="Cari Genre: SCI-FI, FANTASI, HOROR, PERANG, DISTOPIA...">
+        </div>
+        <div id="explore-content">
+        </div>
+    </div>
+    
+    <div id="watchlist-page-view" class="main-view hidden-view">
+        <div class="support-content">
+            <h2>Daftar Tonton (Watchlist)</h2>
+            <p style="margin-top: 20px;">Fitur ini belum diimplementasikan. Film yang Anda suka akan muncul di sini.</p>
+        </div>
+    </div>
+    
+    <div class="bottom-nav">
+        <a href="#" class="nav-item active" id="navHomeBtn"> 
+            <i class="fas fa-home"></i>
+            <span>Beranda</span>
+        </a>
+        <a href="#" class="nav-item" id="navExploreBtn"> 
+            <i class="fas fa-compass"></i>
+            <span>Jelajah</span>
+        </a>
+        <a href="#" class="nav-item" id="navWatchlistBtn"> 
+            <i class="fas fa-bookmark"></i>
+            <span>Daftar Tonton</span>
+        </a>
+        <a href="#" class="nav-item" id="navSupportBtn">
+            <i class="fas fa-heart"></i>
+            <span>Dukung</span>
+        </a>
     </div>
 
     <div class="footer">
-        <h3 class="footer-title">Tentang Vynix</h3>
-        <div class="footer-content">
-            <p>VYNIX adalah platform streaming film inovatif yang menghadirkan berbagai konten hiburan berkualitas, hasil karya kreatif Muhamad Rivaldi, seorang pelajar berusia 17 tahun.
-
-Dibangun tanpa modal besar dengan memanfaatkan teknologi gratis seperti GitHub dan video yang di-embed dari YouTube, VYNIX berkomitmen memberikan pengalaman menonton yang simpel, cepat, dan mudah diakses siapa pun.
-
-Terima kasih telah menjadi bagian dari perjalanan VYNIX — langkah kecil menuju masa depan hiburan digital yang lebih kreatif dan terbuka.. .</p>
-            <p style="margin-top: 15px; font-size: 13px;">
-                © 2023 Vynix. All rights reserved.
-            </p>
-        </div>
+        <p class="footer-content">
+            VYNIX adalah platform streaming film inovatif. Dibuat oleh Muhamad Rivaldi.
+        </p>
+        <p class="copyright">
+            © 2023 Vynix. All rights reserved.
+        </p>
     </div>
 
     <div class="modal" id="videoModal">
         <span class="close-modal" id="closeModal">×</span>
         <div class="modal-content">
-            <div class="player-container">
-                <iframe class="player-iframe" id="videoPlayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="movie-details-view" id="movieDetailsView">
+                <div class="detail-poster-container">
+                    <img id="modalPoster" src="" alt="Poster Film" class="detail-poster">
+                </div>
+                <div class="detail-info">
+                    <h2 class="detail-title" id="modalTitle"></h2>
+                    <p class="detail-description" id="modalDescription"></p>
+                    <button class="play-button" id="playMovieBtn">
+                        <i class="fas fa-play"></i> Tonton Sekarang
+                    </button>
+                </div>
             </div>
-            <div class="video-details">
-                <h2 class="detail-title" id="modalTitle"></h2>
-                <p class="detail-description" id="modalDescription"></p>
+
+            <div class="player-view hidden-view" id="playerView">
+                <div class="player-container">
+                    <iframe class="player-iframe" id="videoPlayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
+
 
