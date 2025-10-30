@@ -1,245 +1,236 @@
-/* --- 1. DEFINISI WARNA FUTURISTIK MONOKROM --- */
+/* ======================== BASE & RESET ======================== */
 :root {
-    --color-bg-primary: #0A0A0A; /* Hampir Hitam */
-    --color-bg-secondary: #1C1C1C; /* Abu-abu Gelap untuk Card/Nav */
-    --color-text-primary: #FFFFFF; /* Putih Cerah */
-    --color-text-secondary: #AAAAAA; /* Abu-abu Terang untuk Detail/Deskripsi */
-    --color-accent: #E0E0E0; /* Putih pudar sebagai aksen monokrom */
-    --shadow-dark: rgba(255, 255, 255, 0.05);
+    --primary-color: #f00; /* Merah menyala, khas streaming */
+    --secondary-color: #333;
+    --background-dark: #141414;
+    --card-background: #222;
+    --text-light: #f4f4f4;
+    --text-muted: #aaa;
+    --font-family: 'Poppins', sans-serif;
+    --nav-height: 55px;
 }
 
-/* --- 2. GLOBAL RESET & BASE STYLES --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
-    overflow-x: hidden;
-    padding-top: 60px; /* Ruang untuk Header */
-    padding-bottom: 70px; /* Ruang untuk Bottom Nav */
-    transition: background-color 0.3s, color 0.3s;
+    font-family: var(--font-family);
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+    padding-bottom: var(--nav-height); /* Ruang untuk bottom nav */
 }
 
-/* Mengunci ke Dark Mode, menghapus toggle lama */
-.theme-toggle, .support-btn {
-    display: none;
+a {
+    color: var(--text-light);
+    text-decoration: none;
 }
 
-/* KELAS KRITIS UNTUK PERGANTIAN HALAMAN */
-.main-view {
-    display: block;
-    padding-bottom: 70px; /* Pastikan ruang untuk nav bawah */
-}
-
-.hidden-view {
-    display: none !important;
-}
-/* END: KELAS KRITIS */
-
-/* --- 3. HEADER (ATAS) --- */
-.header {
-    position: fixed;
+/* ======================== HEADER & NAVIGASI ATAS ======================== */
+.main-header {
+    position: sticky;
     top: 0;
-    width: 100%;
-    background-color: var(--color-bg-primary);
-    padding: 15px 20px;
+    z-index: 10;
+    background-color: var(--background-dark);
+    padding: 10px 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000;
-    box-shadow: 0 1px 5px var(--shadow-dark);
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: var(--color-accent);
+    height: 30px; /* Ukuran logo */
 }
 
-.search-icon, .profile-icon {
-    font-size: 20px;
+.search-icon {
+    font-size: 1.4rem;
     cursor: pointer;
-    color: var(--color-text-secondary);
-    transition: color 0.2s;
+    color: var(--text-muted);
+    transition: color 0.3s;
 }
 
-.search-icon:hover, .profile-icon:hover {
-    color: var(--color-text-primary);
+.search-icon:hover {
+    color: var(--primary-color);
 }
 
-/* --- 4. BOTTOM NAVIGATION (BAWAH) - FOKUS MOBILE --- */
+/* ======================== BOTTOM NAV ======================== */
 .bottom-nav {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 60px;
-    background-color: var(--color-bg-secondary);
+    height: var(--nav-height);
+    background-color: #000;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    z-index: 1000;
-    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.5);
-    border-top: 1px solid #282828;
+    z-index: 20;
+    border-top: 1px solid #333;
 }
 
 .nav-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none;
-    color: var(--color-text-secondary);
-    font-size: 10px;
-    font-weight: 500;
-    transition: color 0.2s;
+    justify-content: center;
+    flex-grow: 1;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    transition: color 0.3s;
 }
 
 .nav-item i {
-    font-size: 18px;
+    font-size: 1.2rem;
     margin-bottom: 2px;
 }
 
-.nav-item.active, .nav-item:hover {
-    color: var(--color-text-primary);
+.nav-item.active {
+    color: var(--primary-color);
 }
 
-/* --- 5. CONTENT LAYOUT & VIDEO CARDS (MAIN-CONTENT) --- */
+.nav-item:hover {
+    color: var(--primary-color);
+}
 
-/* HERO BANNER SECTION (Tambahan Baru) */
-.hero-banner {
-    width: 100%;
-    /* Tinggi yang ideal untuk banner di mobile */
-    height: 350px; 
-    background-color: var(--color-bg-secondary); 
-    /* Ganti dengan URL gambar latar belakang futuristik jika ada */
+/* ======================== HOME VIEW (MAIN CONTENT) ======================== */
+.main-view {
+    padding: 0 0 15px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hidden-view {
+    display: none !important;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 350px;
     background-size: cover;
-    background-position: center;
-    position: relative;
+    background-position: center center;
     display: flex;
-    align-items: flex-end; /* Taruh teks di bagian bawah */
+    align-items: flex-end;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 20px;
-    margin-bottom: 30px; /* Jarak dengan barisan film di bawah */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
 }
 
-.hero-content {
-    color: var(--color-text-primary);
-    text-align: left;
-    /* Lapisan gelap di belakang teks agar mudah dibaca */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%); 
-    width: 100%;
-    padding: 20px 0;
-}
-
-.hero-title {
-    font-size: 3.5em; /* V Y N I X besar */
-    font-weight: 900;
-    letter-spacing: 5px;
+.hero-overlay h1 {
+    font-size: 1.8rem;
     margin-bottom: 5px;
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Efek glow ringan */
 }
 
-.hero-subtitle {
-    font-size: 1.1em;
-    font-weight: 500;
-    color: var(--color-accent);
-    margin-bottom: 10px;
+.hero-overlay p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
 }
 
-.hero-coming-soon {
-    font-size: 0.9em;
+/* Button */
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
     font-weight: 600;
-    padding: 4px 8px;
-    background-color: var(--color-accent); 
-    color: var(--color-bg-primary);
-    display: inline-block;
-    border-radius: 3px;
-    text-transform: uppercase;
-}
-/* END HERO BANNER */
-
-
-.main-content {
-    padding: 0 20px 10px 20px; /* Padding di sekitar Hero Banner, kecuali di bagian atas */
-    padding-top: 0; /* Hapus padding atas agar hero banner full width */
+    transition: background-color 0.3s;
 }
 
+.primary-btn:hover {
+    background-color: #e50914;
+}
+
+.large-btn {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+}
+
+/* Video Rows */
 .video-row {
-    margin-bottom: 25px;
+    padding: 0 15px 15px 15px;
 }
 
 .section-title {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    padding-left: 0; /* Di mobile, title sudah di dalam padding .main-content */
-    color: var(--color-accent);
-    text-transform: uppercase;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 10px;
 }
 
 .video-list-container {
     display: flex;
     overflow-x: scroll;
     gap: 10px;
-    padding: 5px 0; /* Hapus padding horizontal karena sudah di .main-content */
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    padding-bottom: 10px; /* Ruang untuk scrollbar */
+    -webkit-overflow-scrolling: touch; /* Untuk iOS smooth scrolling */
 }
 
+/* Hide scrollbar for aesthetics, but keep scrolling */
 .video-list-container::-webkit-scrollbar {
     display: none;
 }
 
+.video-list-container {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Video Card */
 .video-card {
-    flex-shrink: 0;
-    width: 110px;
-    background: var(--color-bg-secondary);
-    border-radius: 4px;
-    overflow: hidden;
+    min-width: 140px;
+    width: 140px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 .video-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
 }
 
 .video-thumbnail {
-    position: relative;
     width: 100%;
-    padding-top: 65%; 
-    background-color: #333;
+    height: 80px;
     background-size: cover;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .play-icon {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 28px;
-    color: rgba(255, 255, 255, 0.7);
-    transition: all 0.3s ease;
+    font-size: 2.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    opacity: 0;
+    transition: opacity 0.2s;
 }
 
 .video-card:hover .play-icon {
-    color: white;
-    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
 }
 
 .video-info {
@@ -247,365 +238,317 @@ body {
 }
 
 .video-title {
-    font-size: 12px;
+    font-size: 0.9rem;
     font-weight: 600;
-    text-align: left;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-bottom: 2px;
 }
 
-/* --- 6. MODAL REVISI (DETAIL & PLAYER VIEW) --- */
+.video-genre {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    font-weight: 300;
+}
+
+
+/* ======================== MODAL STYLES ======================== */
 .modal {
-    display: none; 
+    display: none; /* Default hidden */
     position: fixed;
-    z-index: 2000;
+    z-index: 100;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.9);
     justify-content: center;
     align-items: center;
 }
 
 .modal-content {
-    width: 95%;
-    max-width: 450px;
-    background: var(--color-bg-secondary);
-    border-radius: 12px;
-    padding: 0;
+    background-color: var(--background-dark);
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
 }
 
-.close-modal {
+.close-btn {
+    color: var(--text-light);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
     position: absolute;
     top: 10px;
-    right: 10px;
-    color: var(--color-accent);
-    background: rgba(255, 255, 255, 0.1);
-    z-index: 10;
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    line-height: 28px;
-    text-align: center;
-    border-radius: 50%;
+    right: 20px;
+    z-index: 101;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--primary-color);
+    text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
-.detail-poster-container {
-    width: 100%;
-    padding-top: 60%; 
-    position: relative;
-    overflow: hidden;
+/* Detail View */
+#movieDetailsView {
+    display: flex;
+    gap: 20px;
 }
 
-.detail-poster {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
+.modal-poster {
+    width: 35%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 8px;
     object-fit: cover;
 }
 
-.detail-info {
-    padding: 20px;
-    text-align: left;
+.modal-info {
+    width: 65%;
 }
 
-.detail-title {
-    font-size: 24px;
+.modal-info h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
     margin-bottom: 10px;
-    font-weight: 800;
 }
 
-.detail-description {
-    font-size: 14px;
-    color: var(--color-text-secondary);
+.modal-genre-tag {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.modal-description {
+    color: var(--text-muted);
     line-height: 1.5;
     margin-bottom: 20px;
 }
 
-.play-button {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--color-accent);
-    color: var(--color-bg-primary);
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-}
-
-.play-button:active {
-    transform: scale(0.98);
-}
-
-.play-button i {
-    margin-right: 8px;
-}
-
-.player-view {
-    width: 100%;
-    height: 100%;
-}
-
+/* Player View */
 .player-container {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* Rasio 16:9 */
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #000;
 }
 
-.player-iframe {
+#videoPlayer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    border: none;
 }
 
-
-/* --- 7. HALAMAN DUKUNGAN (#support-page-view) --- */
-
-#support-page-view {
-    text-align: center;
-    padding: 30px 20px;
-    min-height: 85vh; 
+/* ======================== EXPLORE PAGE ======================== */
+.explore-header {
+    padding: 15px;
+    margin-bottom: 15px;
 }
 
-.support-content h2 {
-    font-size: 2.2em;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: var(--color-accent);
+.explore-header h2 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
 }
 
-.support-content p {
-    color: var(--color-text-secondary);
-    margin-bottom: 40px;
-    font-size: 1em;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* STYLE LOGO SOSIAL MEDIA */
-.social-icons {
-    margin: 30px auto;
-}
-
-.social-icon {
-    color: #ffffff; 
-    font-size: 60px; 
-    margin: 0 25px;
-    transition: color 0.3s;
-    display: inline-block;
-}
-
-/* Efek Hover */
-#social-instagram:hover {
-    color: #E1306C; 
-}
-
-#social-tiktok:hover {
-    color: #69C9D0; 
-}
-
-/* --- 8. FOOTER --- */
-.footer {
-    background: var(--color-bg-primary);
-    padding: 10px 20px 80px 20px; 
-    text-align: center;
-    margin-top: 15px;
-    border-top: 1px solid #1C1C1C;
-}
-
-.footer-content, .copyright {
-    font-size: 12px;
-    color: var(--color-text-secondary);
-    margin: 5px 0;
-}
-
-
-/* --- 9. Styling untuk Halaman Jelajahi/Pencarian BARU --- */
-
-#explore-page-view {
-    padding-top: 20px;
-    padding-bottom: 80px; /* Ruang untuk Navigasi Bawah */
-}
-
-.search-bar-container {
-    padding: 0 15px 20px;
+.search-bar {
+    position: relative;
 }
 
 #searchInput {
     width: 100%;
-    padding: 12px 15px;
-    border: none;
-    border-radius: 25px;
-    background-color: #333; /* Darker input */
-    color: #fff;
-    font-size: 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px 15px;
+    padding-right: 40px;
+    border-radius: 20px;
+    border: 1px solid #444;
+    background-color: #333;
+    color: var(--text-light);
+    font-size: 1rem;
 }
 
-#searchInput::placeholder {
-    color: #bbb;
+.search-bar .fas.fa-search {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
 }
 
-/* Grid untuk Film di Halaman Jelajahi (Semua film dalam 1 list) */
 .explore-grid-container {
     display: grid;
-    /* Membuat 3 kolom di mobile */
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
-    gap: 10px; /* Jarak antar card */
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); /* Responsif */
+    gap: 15px;
     padding: 0 15px;
 }
 
-/* Penyesuaian tampilan video card agar pas di grid */
 .explore-grid-container .video-card {
-    margin-bottom: 0; 
-    width: 100%;
-}
-
-.explore-grid-container .video-thumbnail {
-    height: auto;
-    padding-top: 150%; /* Rasio vertikal yang bagus untuk poster 2:3 */
-    border-radius: 8px;
-}
-
-.explore-grid-container .video-info {
-    padding: 5px 0 0;
-}
-
-.explore-grid-container .video-title {
-    font-size: 12px; 
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    line-height: 1.3em;
-    height: 2.6em; /* 2 baris x 1.3em */
-}
-
-/* Style baru: Menampilkan Genre di card */
-.video-genre {
-    font-size: 10px;
-    color: #aaa;
-    margin-top: 3px;
-    text-transform: uppercase;
+    width: auto;
+    min-width: 0;
 }
 
 .no-results {
-    text-align: center;
-    color: var(--color-text-secondary);
-    font-size: 16px;
-    margin-top: 50px;
-    grid-column: 1 / -1; 
+    padding: 20px 15px;
+    color: var(--text-muted);
+    font-style: italic;
+    grid-column: 1 / -1; /* Ambil seluruh kolom */
 }
 
+/* ======================== DUMMY/SUPPORT PAGE ======================== */
+.dummy-page-content {
+    padding: 30px 15px;
+    text-align: center;
+    min-height: 70vh;
+}
 
-/* --- 10. MEDIA QUERY (Desktop/Tablet) --- */
+.dummy-page-content h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.dummy-page-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.social-links {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+.social-btn:hover {
+    opacity: 0.8;
+}
+
+.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.tiktok {
+    background-color: #000;
+    border: 2px solid var(--text-light);
+}
+
+.policy-links {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 20px;
+}
+
+.policy-links a {
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+.policy-links a:hover {
+    color: var(--primary-color);
+}
+
+/* ======================== MEDIA QUERIES (Responsif) ======================== */
+
+/* Desktop/Tablet */
 @media (min-width: 768px) {
-    /* Menghilangkan Bottom Nav di desktop */
-    body {
-        padding-bottom: 20px; 
-    }
     .bottom-nav {
         display: none;
     }
 
-    .header {
-        padding: 15px 40px;
+    body {
+        padding-bottom: 0;
     }
 
-    .main-content {
-        /* Padding untuk desktop agar tidak terlalu mepet tepi, disesuaikan dengan hero-banner */
-        padding: 30px 40px; 
-        padding-top: 0;
+    .main-header {
+        position: static;
+        padding: 15px 30px;
     }
     
-    /* Penyesuaian padding Hero Banner di Desktop */
-    .hero-banner {
-        height: 500px;
-        padding: 40px; 
-        margin-left: -40px; /* Mengisi margin yang dibuat oleh .main-content padding */
-        margin-right: -40px; 
+    .header-content {
+        justify-content: flex-start;
+        gap: 30px;
     }
     
-    .hero-title {
-        font-size: 5em;
-    }
-    
-    .hero-content {
-        /* Hapus gradient di desktop jika tidak ada background */
-        background: none; 
+    .logo {
+        height: 40px;
     }
 
-    .section-title {
-        font-size: 24px;
-        padding-left: 0;
+    .search-area {
+        display: none; /* Sembunyikan icon search di header, fokus di halaman Explore */
     }
 
-    /* Grid Layout untuk Desktop - HOME */
-    .video-list-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        gap: 20px;
-        overflow-x: hidden;
-        padding: 0;
+    /* Tambahkan navigasi samping atau atas jika mau */
+
+    .hero-section {
+        height: 450px;
+        margin-bottom: 40px;
     }
     
+    .video-row {
+        padding: 0 30px 25px 30px;
+    }
+
     .video-card {
+        width: 180px;
+        min-width: 180px;
+    }
+
+    .video-thumbnail {
+        height: 100px;
+    }
+    
+    .explore-header {
+        padding: 30px;
+    }
+
+    .explore-grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    #movieDetailsView {
+        flex-direction: column;
+    }
+
+    .modal-poster {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .modal-info {
         width: 100%;
     }
     
-    .video-thumbnail {
-        padding-top: 56.25%; /* Rasio 16:9 */
-    }
-
-    .footer {
-        padding: 20px 40px;
-        text-align: left;
-    }
-    
-    .modal-content {
-        max-width: 800px;
-    }
-
-    #support-page-view {
-        padding: 50px 40px;
-    }
-    
-    /* Menyesuaikan grid explore di desktop */
     .explore-grid-container {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
-        gap: 20px;
-        padding: 0;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
     
-    .explore-grid-container .video-thumbnail {
-        padding-top: 150%; 
-    }
-    
-    #explore-page-view {
-        padding-top: 30px;
-        padding-bottom: 30px;
-        padding-left: 40px;
-        padding-right: 40px;
-    }
-    
-    .search-bar-container {
-        padding: 0 0 25px 0;
+    .video-card {
+        min-width: 100px;
+        width: 100px;
     }
 }
+
