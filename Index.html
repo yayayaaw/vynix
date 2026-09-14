@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vynix - AI Film Discovery Platform</title>
+    <!-- Font Poppins & Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme='dark'>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">VYNIX</div>
+        <div class="header-search" id="headerSearchPill">
+            <i class="fas fa-search search-icon-inside"></i>
+            <input type="text" placeholder="Search films, creators, genres..." id="topSearchInput">
+        </div>
+        <button class="header-search-icon-btn" id="headerSearchIconBtn" aria-label="Search">
+            <i class="fas fa-search"></i>
+        </button>
+    </header>
+
+    <!-- BERANDA (MAIN VIEW) -->
+    <main class="main-content main-view" id="main-content">
+
+        <!-- HERO BANNER -->
+        <div class="hero-section">
+            <div class="hero-overlay"></div>
+            <img src="IMG_20260913_215136.jpg" alt="AI Films Discovered" class="hero-bg-img" onerror="this.src='https://img.youtube.com/vi/3vfhIeNHhv4/maxresdefault.jpg'">
+            <div class="hero-text-content">
+                <span class="hero-tag">PLATFORM PENEMUAN FILM AI</span>
+                <h1 class="hero-main-title">FILM-FILM AI,<br>DITEMUKAN.</h1>
+                <p class="hero-description">Jelajahi kisah-kisah sinematik yang dibuat dengan AI.</p>
+                <button class="btn-explore-hero hero-play-btn">
+                    <i class="fas fa-play"></i> JELAJAHI FILM <i class="fas fa-arrow-right hero-btn-arrow"></i>
+                </button>
+            </div>
+            <div class="hero-dots" id="heroDots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+
+        <!-- CONTAINER UNTUK FILM DARI JSON (Trending, New, Continue, Genre, Recs, per-genre rows) -->
+        <div id="dynamic-home-content"></div>
+
+        <!-- SUPPORT VYNIX BANNER -->
+        <section class="support-banner-card">
+            <div class="support-banner-left">
+                <i class="far fa-heart support-heart-icon"></i>
+                <div>
+                    <h3>SUPPORT VYNIX</h3>
+                    <p>Help us keep discovering and showcasing amazing AI films.</p>
+                </div>
+            </div>
+            <a href="https://saweria.co/Telierlabs" target="_blank" rel="noopener noreferrer" class="btn-support-now">
+                SUPPORT NOW <i class="fas fa-arrow-right"></i>
+            </a>
+        </section>
+    </main>
+
+    <!-- HALAMAN JELAJAH -->
+    <div id="explore-page-view" class="main-view hidden-view">
+        <div class="search-bar-container" style="padding: 20px;">
+            <div class="header-search" style="width: 100%;">
+                <i class="fas fa-search search-icon-inside"></i>
+                <input type="text" id="searchInput" placeholder="Cari Genre: SCI-FI, FANTASI, HOROR...">
+            </div>
+        </div>
+        <div id="explore-content" style="padding: 0 20px 100px;"></div>
+    </div>
+
+    <!-- HALAMAN WATCHLIST -->
+    <div id="watchlist-page-view" class="main-view hidden-view">
+        <div class="watchlist-header">
+            <h2>Watchlist</h2>
+            <div class="watchlist-tabs" id="watchlistTabs">
+                <button class="watchlist-tab active" data-filter="all">Semua <span id="wlCountAll">0</span></button>
+                <button class="watchlist-tab" data-filter="unwatched">Belum Ditonton <span id="wlCountUnwatched">0</span></button>
+                <button class="watchlist-tab" data-filter="watched">Sudah Ditonton <span id="wlCountWatched">0</span></button>
+            </div>
+        </div>
+        <div id="watchlistListContainer" class="watchlist-list"></div>
+    </div>
+
+    <!-- HALAMAN DUKUNG -->
+    <div id="support-page-view" class="main-view hidden-view">
+        <div class="support-hero">
+            <!-- Ganti src di bawah ini dengan gambar hero khusus kamu -->
+            <img src="support-hero.jpg" alt="Dukung Vynix" class="support-hero-img" onerror="this.style.display='none'">
+            <div class="support-hero-overlay"></div>
+            <div class="support-hero-text">
+                <h1>DUKUNG VYNIX</h1>
+                <p>Setiap dukungan berarti. Terima kasih sudah menjadi bagian dari perjalanan ini.</p>
+            </div>
+        </div>
+
+        <div class="support-body">
+            <a href="https://saweria.co/Telierlabs" target="_blank" rel="noopener noreferrer" class="btn-support-main">
+                <i class="fas fa-gift"></i> Dukung Sekarang <i class="fas fa-arrow-right"></i>
+            </a>
+            <p class="support-via">via Saweria</p>
+
+            <div class="support-benefits">
+                <div class="support-benefit-item">
+                    <i class="fas fa-cubes"></i>
+                    <span>Bantu pengembangan platform</span>
+                </div>
+                <div class="support-benefit-item">
+                    <i class="fas fa-film"></i>
+                    <span>Tambah koleksi film AI</span>
+                </div>
+                <div class="support-benefit-item">
+                    <i class="fas fa-people-arrows"></i>
+                    <span>Dukung kreator independen</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active" id="navHomeBtn">
+            <i class="fas fa-home"></i>
+            <span>Beranda</span>
+        </a>
+        <a href="#" class="nav-item" id="navExploreBtn">
+            <i class="fas fa-compass"></i>
+            <span>Jelajah</span>
+        </a>
+        <a href="#" class="nav-item" id="navWatchlistBtn">
+            <i class="fas fa-bookmark"></i>
+            <span>Watchlist</span>
+        </a>
+        <a href="#" class="nav-item" id="navSupportBtn">
+            <i class="fas fa-heart"></i>
+            <span>Dukung</span>
+        </a>
+    </nav>
+
+    <!-- MODAL DETAIL / PLAYER -->
+    <div class="modal" id="videoModal">
+        <button class="modal-nav-arrow modal-nav-prev" id="modalPrevBtn" aria-label="Film sebelumnya"><i class="fas fa-chevron-left"></i></button>
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+
+            <div class="movie-details-view" id="movieDetailsView">
+                <div class="detail-poster-container">
+                    <img id="modalPoster" src="" alt="Poster Film" class="detail-poster">
+                </div>
+                <div class="detail-info">
+                    <h2 class="detail-title" id="modalTitle"></h2>
+                    <p class="detail-meta" id="modalMeta"></p>
+                    <p class="detail-description" id="modalDescription"></p>
+
+                    <button class="play-button" id="playMovieBtn">
+                        <i class="fas fa-play"></i> Tonton Sekarang
+                    </button>
+                    <button class="watchlist-button" id="watchlistBtn">
+                        <i class="far fa-heart" id="watchlistBtnIcon"></i> <span id="watchlistBtnLabel">Simpan ke Watchlist</span>
+                    </button>
+
+                    <div class="more-like-this" id="moreLikeThisSection">
+                        <h3 class="more-like-this-title">MORE LIKE THIS</h3>
+                        <div class="cards-row" id="moreLikeThisRow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-view hidden-view" id="playerView">
+                <div class="player-container">
+                    <iframe class="player-iframe" id="videoPlayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <button class="modal-nav-arrow modal-nav-next" id="modalNextBtn" aria-label="Film berikutnya"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
